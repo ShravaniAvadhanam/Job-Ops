@@ -15,7 +15,9 @@
     "rollback": "node update-system.mjs rollback",
     "liveness": "node check-liveness.mjs",
     "scan": "node scan.mjs",
-    "gemini:eval": "node gemini-eval.mjs"
+    "gemini:eval": "node gemini-eval.mjs",
+    "pipeline": "node run-pipeline.mjs",
+    "dashboard": "node -e \"try { require('child_process').execSync('go version', { stdio: 'ignore' }); require('child_process').execSync('cd dashboard && go build -o career-dashboard . && ./career-dashboard --path ..', { stdio: 'inherit' }); } catch (e) { require('child_process').execSync('node view-tracker.mjs', { stdio: 'inherit' }); }\""
   },
   "keywords": [
     "ai",
