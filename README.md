@@ -70,6 +70,43 @@ Validate that all system prerequisites are correctly met:
 npm run doctor
 ```
 
+#### 3. Gemini CLI Integration (Free Tier)
+Job-Ops supports the Google Gemini CLI natively to run all agentic slash commands using your Google Account for free:
+
+*   **Option A: Native Gemini CLI (Recommended)**
+    1. Install the Gemini CLI globally on your local PC:
+       ```bash
+       npm install -g @google/gemini-cli
+       ```
+    2. Authenticate with Google (this will open a browser window for a secure login):
+       ```bash
+       gemini auth
+       ```
+    3. Start the Gemini interactive environment in your workspace directory:
+       ```bash
+       gemini
+       ```
+    4. Run slash commands directly inside the environment:
+       ```bash
+       /career-ops "Paste a job description or URL here"
+       /career-ops-scan
+       /career-ops-pdf
+       ```
+
+*   **Option B: Standalone API Script (No CLI Install Required)**
+    1. Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey).
+    2. Copy the template `.env` file:
+       ```bash
+       cp .env.example .env
+       ```
+    3. Edit `.env` and set `GEMINI_API_KEY=your_key_here`.
+    4. Run evaluations directly from your terminal:
+       ```bash
+       node gemini-eval.mjs "We are looking for an AI UX Engineer..."
+       # Or target a local file containing the job description:
+       node gemini-eval.mjs --file ./jds/my-job.txt
+       ```
+
 ---
 
 ### 🛠️ Customization Guide
